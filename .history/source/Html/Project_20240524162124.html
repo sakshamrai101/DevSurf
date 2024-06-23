@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Page</title>
+    <link rel="stylesheet" href="../CSS/project-style.css">
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet'>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="../../admin/branding/Logo1.png" alt="Team Logo" class="team-logo">
+        </div>
+        <div class="project-name">
+            Project Name
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="home.html">Home</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="main-content">
+            <section class="notes-section">
+                <h2>Notes</h2>
+                <div class="notes-container">
+                    <div class="notes-left">
+                        <div class="scrollable-container" id="entries-container">
+                            <!-- Previous entries will be added here -->
+                        </div>
+                    </div>
+                    <div class="notes-right">
+                        <textarea id="notepad" placeholder="Write your notes here..."></textarea>
+                        <img src="path-to-your-pen-image.png" alt="Pen" class="pen">
+                        <input type="file" id="fileInput" accept="image/*, .txt, .js, .html, .css">
+                        <div class="buttons">
+                            <button class="code-snippets-button" id="addSnippetButton">Code Snippets</button>
+                            <button class="add-entry-button" id="addEntryButton">Add Entry</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="sidebar">
+            <div class="milestone-container">
+                <h3>Milestones</h3>
+                <ul class="milestone-list" id="milestone-list">
+                    <li>
+                        <label>Milestone 1</label>
+                        <div class="progress-bar">
+                            <div class="progress" id="progress1"></div>
+                        </div>
+                        <ul class="task-list" id="task-list1">
+                            <li>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task1-1" onclick="updateProgress(1)">
+                                    <label for="task1-1">Task 1</label>
+                                </div>
+                                <textarea placeholder="Description"></textarea>
+                            </li>
+                            <li>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task1-2" onclick="updateProgress(1)">
+                                    <label for="task1-2">Task 2</label>
+                                </div>
+                                <textarea placeholder="Description"></textarea>
+                            </li>
+                        </ul>
+                        <button class="add-task" onclick="addTask(this, 1)">Add Task +</button>
+                    </li>
+                    <li>
+                        <label>Milestone 2</label>
+                        <div class="progress-bar">
+                            <div class="progress" id="progress2"></div>
+                        </div>
+                        <ul class="task-list" id="task-list2">
+                            <li>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task2-1" onclick="updateProgress(2)">
+                                    <label for="task2-1">Task 1</label>
+                                </div>
+                                <textarea placeholder="Description"></textarea>
+                            </li>
+                            <li>
+                                <div class="task-item">
+                                    <input type="checkbox" id="task2-2" onclick="updateProgress(2)">
+                                    <label for="task2-2">Task 2</label>
+                                </div>
+                                <textarea placeholder="Description"></textarea>
+                            </li>
+                        </ul>
+                        <button class="add-task" onclick="addTask(this, 2)">Add Task +</button>
+                    </li>
+                </ul>
+                <button class="add-milestone" onclick="addMilestone()">Add Milestone +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="timeline-Wrapper">
+        <h1>Timeline</h1>
+        <div>
+            <div class="timeline-container">
+                <ul>
+                    <li class="completedcompleted">
+                        <div class="step-inner"> Project start</div>
+                    </li>
+                    <li class="completedcompleted">
+                        <div class="step-inner"> Milestone 1</div>
+                    </li>
+                    <li class="completed">
+                        <div class="step-inner"> Milestone 2</div>
+                    </li>
+                    <li class="completed">
+                        <div class="step-inner"> Milestone 3</div>
+                    </li>
+                    <li class="completed">
+                        <div class="step-inner"> Project End</div>
+                    </li>
+                </ul>
+                <div id="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

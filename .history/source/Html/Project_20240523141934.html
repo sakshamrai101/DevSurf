@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Page</title>
+    <link rel="stylesheet" href="../CSS/project-style.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="profile.jpg" alt="Profile Picture" class="profile-picture">
+            <h1>Project Name</h1>
+        </div>
+        <div class="header-right">
+            <div class="menu-icon">&#9776;</div>
+        </div>
+    </header>
+    <main>
+        <section class="notes-section">
+            <h2>Notes</h2>
+            <div class="notes-container">
+                <div class="notes-left">
+                    <div class="scrollable-container" id="entries-container">
+                        <!-- Previous entries will be added here -->
+                    </div>
+                </div>
+                <div class="notes-right">
+                    <textarea id="notepad" placeholder="Write your notes here..."></textarea>
+                    <input type="file" id="fileInput" accept="image/*, .txt, .js, .html, .css">
+                    <div class="buttons">
+                        <button class="code-snippets-button" id="addSnippetButton">Code Snippets</button>
+                        <button class="add-entry-button" id="addEntryButton">Add Entry</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="timeline-Wrapper">
+        <h1 id='TIHeader'>Timeline</h1>
+        <div>
+            <div class="timeline-container">
+                <ul>
+                    <li class="step1">
+                        <div class="step-inner"> Project start</div>
+                    </li>
+                    <li class="step2">
+                        <div class="step-inner"> Milestone 1</div>
+                    </li>
+                    <li class="step3">
+                        <div class="step-inner"> Milestone 2</div>
+                    </li>
+                    <li class="step4">
+                        <div class="step-inner"> Milestone 3</div>
+                    </li>
+                    <li class="step5">
+                        <div class="step-inner"> Project End</div>
+                    </li>
+                </ul>
+                <div id="line"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="../CSS/Tistyle.css">
+</head>
+<body>
+    <div class="timeline-Wrapper">
+        <h1>Timeline</h1>
+        <div>
+            <div class="timeline-container">
+              <ul> 
+                <li class="step1">
+                    <div class="step-inner"> Project start</div>
+                </li>
+                <li class="step2">
+                    <div class="step-inner"> Milestone 1</div>
+                </li>
+                <li class="step3">
+                    <div class="step-inner"> Milestone 2</div>
+                </li>
+                <li class="step4">
+                    <div class="step-inner"> Milestone 3</div>
+                </li>
+                <li class="step5">
+                    <div class="step-inner"> Project End</div>
+                </li>
+              </ul> 
+              <div id="line"></div> 
+            </div>
+        </div>
+    </div>
+
+   
+</body>
+</html> -->

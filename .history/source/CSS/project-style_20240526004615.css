@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0A192F;
+    background: linear-gradient(to right, #0A192F 88%, #00FFB0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100vw;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CCFF00;
+    color: #000;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.team-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-name {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 2em;
+    color: #0A192F;
+}
+
+.hamburger-menu {
+    font-size: 3em;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #575757;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.main-content {
+    width: 75%; /* Adjusted to take up 75% of the width */
+    padding: 20px;
+}
+
+.notes-section {
+    background-color: #F0F0F0; /* Light background for the notes section */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.notes-section h2 {
+    color: #0A192F; /* Dark color for the heading */
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.notes-container {
+    display: flex;
+    gap: 20px;
+}
+
+.notes-left, .notes-right {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.notes-left {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.notes-left:before, .notes-right:before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 20px;
+    background-color: #4b4b4b;
+    border-radius: 5px 5px 0 0;
+}
+
+.notes-left:before {
+    left: calc(50% - 10px);
+}
+
+.notes-right:before {
+    left: calc(50% - 10px);
+}
+
+.note {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#notepad {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background: url('path-to-paper-texture.png') no-repeat center center / cover; /* Scrap paper background */
+}
+
+input[type="file"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #4b4b4b; /* Dark button color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333; /* Darker hover color */
+}
+
+.scrollable-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.note-entry {
+    background: url('path-to-paper-texture.png') no-repeat center center / cover; /* Add paper texture */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.note-entry img {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.note-entry .pen {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: auto;
+}
+
+.sidebar {
+    width: 25%; /* Adjusted to take up 25% of the width */
+    padding: 20px;
+}
+
+.milestone-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.milestone-container h3 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.milestone-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.milestone-list li {
+    margin-bottom: 20px;
+}
+
+.milestone-list label {
+    font-size: 0.9em;
+    color: #333;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 10px;
+    background-color: #4caf50;
+    width: 0%;
+}
+
+.task-list {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.task-list li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.task-list input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-list label {
+    font-size: 0.85em;
+    color: #555;
+}
+
+.task-list textarea {
+    margin-top: 5px;
+    font-size: 0.8em;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+.add-task, .add-milestone {
+    background-color: #0A192F;
+    border-radius: 7px;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin-top: 10px;
+}
+
+.add-task:hover, .add-milestone:hover {
+    filter: brightness(75%);
+}
+
+
+#TIHeader {
+    color:  #CCFF00;
+    font-weight: 700;
+    font-size: 3em; 
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    line-height: 1.2em;
+}
+
+.timeline-Wrapper {
+    position: sticky;
+    bottom: 0;
+    height: 20%; 
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+
+.timeline-container {
+    margin: auto;
+    width: 100%;
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline-container ul {
+    padding: 0;
+    margin: 0;
+    z-index: 9;
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    position: absolute; 
+    top: calc(100% + 10px); /* Increased top value to lower the element */
+    transform: translateY(-50%);
+    font-weight: bold; 
+}
+
+.timeline-container li:before {
+    content: '';
+    background-color: #CCFF00;
+    display: block;
+    margin: auto;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    border: solid 2px #CCFF00;
+}
+
+.timeline-container li.completed:before {
+    content: url(../img/your-completed-image.png); /* Replace 'your-completed-image.png' with the path to your completed image */
+    display: block;
+    margin: auto;
+    width: 50px; /* Adjust the width of the completed image */
+    height: 50px; /* Adjust the height of the completed image */
+}
+.timeline-container li.completed {
+    color:#00FFB0;
+}
+.timeline-container li {
+    list-style: none;
+    flex: 1; 
+    text-align: center;
+    color: #CCFF00;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all ease .2s;
+    vertical-align: middle;
+    position: relative;
+    
+}
+
+.timeline-container #line {
+    width: 80%;
+    background: linear-gradient(to right, #00FFB0 30%, #CCFF00 20%);
+    height: 7px;
+    position: absolute;
+    top: 100%; 
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 100px;
+}
+
+.timeline-container li.uncompleted:hover:before {
+    transform: scale(125%);
+    transition: all ease .2s;
+    background-color: #00FFB0; 
+    border-color: #00FFB0; 
+}

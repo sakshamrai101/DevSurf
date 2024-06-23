@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet'>
+    <title>CodeFolio</title>
+    <style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box-container" id="box-container">
+        <div class="form-box sign-up">
+            <form>
+                <h1>Sign Up</h1>
+                <br>
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Choose a 6-digit PIN Code" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                <button type ="submit" >Sign Up</button>
+            </form>
+        </div>
+        <div class="form-box sign-in">
+            <form>
+                <h1>Sign In</h1>
+
+                <span class = "enterPin">Enter your PIN Code here:</span>
+                <div class ="pincode-box">
+                    <input type="text" maxlength="1" class="pin-input" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <input type="text" maxlength="1" class="pin-input" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <input type="text" maxlength="1" class="pin-input" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <input type="text" maxlength="1" class="pin-input" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <input type="text" maxlength="1" class="pin-input" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <input type="text" maxlength="1" class="pin-input" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                </div>
+                <script>
+                    const pinInputs = document.querySelectorAll(".pincode-box input");
+                
+                    pinInputs.forEach((pinInput, index) => {
+                        pinInput.dataset.index = index;
+                        pinInput.addEventListener("paste", handlePaste);
+                        pinInput.addEventListener("keyup", handlePin);
+                    });
+                
+                    // Allow users to paste their passcodes
+                    function handlePaste(event) {
+                        const clipboardData = event.clipboardData.getData("text");
+                        const clipboardValues = clipboardData.split("");
+                        if (clipboardValues.length === pinInputs.length) {
+                            pinInputs.forEach((input, index) => (input.value = clipboardValues[index]));
+                            submit(); // Trigger sign in button or user manually clicks?
+                        }
+                    }
+                
+                    function handlePin(event) {
+                        const currentInput = event.target;
+                        let value = currentInput.value;
+                        currentInput.value = "";
+                        currentInput.value = value ? value[0] : "";
+                        let fieldIndex = parseInt(currentInput.dataset.index);
+                        if (value.length > 0 && fieldIndex < pinInputs.length - 1) {
+                            pinInputs[fieldIndex + 1].focus();
+                        }
+                        if (event.key === "Backspace" && fieldIndex > 0) {
+                            pinInputs[fieldIndex - 1].focus();
+                        }
+                        if (fieldIndex == pinInputs.length - 1) {
+                            submit();
+                        }
+                    }
+                    
+                </script>                
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="transition-container">
+            <div class="transition">
+                <div class="transition-panel transition-left">
+                    <h1>Welcome On Board!</h1>
+                    <p>Fill in your details to register</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="transition-panel transition-right">
+                    <h1>Hello Developer!</h1>
+                    <p>By Software Surfers Inc.</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../script/main.js"></script>
+</body>
+
+</html>

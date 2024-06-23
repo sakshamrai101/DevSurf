@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Page</title>
+    <link rel="stylesheet" href="project-style.css">
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="/Logo1-nobg.png" alt="Logo" class="logo">
+        </div>
+
+        <div class="header-center">
+            <h1 class="main-heading">Project Title</h1>
+        </div>
+
+        <div class="header-right">
+            <button class="home-button">HOME</button>
+            <button class="logout-button">LOG OUT</button>
+        </div>
+    </header>
+    <navbar-component tabindex="-1"></navbar-component>
+    <h1 class='title'> Project PlaceHolder Name </h1>
+    <div class="content">
+        <div class="main-content">
+            <section class="notes-section">
+                <h2>Notes</h2>
+                <div class="notes-container">
+                    <div class="note-type-buttons">
+                        <button class="note-type-button active" data-type="notes">Notes</button>
+                        <button class="note-type-button" data-type="markdown">Markdown</button>
+                    </div>
+                    <div class="notes-left">
+                        <div class="entries-container">
+                            <!-- Existing entries here -->
+                        </div>
+                    </div>
+                    <div class="notes-right">
+                        <div class="notepad-wrapper">
+                            <img src="/pen.png" alt="Pen" class="pen">
+                            <textarea id="notepad" placeholder="Write your notes here..."></textarea>
+                            <textarea id="markdown" placeholder="Write your markdown here..."></textarea>
+                        </div>
+                        <div class="buttons">
+                            <button class="add-entry-button" id="addEntryButton">Add Entry</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="sidebar">
+            <div class="milestone-container">
+                <h3>Project Milestones</h3>
+                <ul class="milestone-list" id="milestone-list">
+                    <!-- Milestones will be added here -->
+                </ul>
+                <button class="add-milestone" onclick="addMilestone('')">Add Milestone +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="timeline-Wrapper">
+        <h1 id="TIHeader">Timeline</h1>
+        <div class="timeline-container">  
+                <ul id='timeline-elements'>
+                    <li class="completed">
+                        <span>Start</span>
+                    </li>
+                    <li class="uncompleted">
+                        <span>End</span>
+                    </li>
+                </ul>
+                <div id="line"></div>
+                <div id="line2"></div>
+            </div>
+    </div>
+
+    <div id="dynamicIsland" class="dynamic-island">
+        <div class="dynamic-island-content">
+            <span id="closeIsland" class="close-island">&times;</span>
+            <h3 id="islandTitle">Entry Title</h3>
+            <p id="islandContent">Entry Content</p>
+            <div id="islandImages" class="island-images">
+                <!-- Images will be appended here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="scriptProjectPage.js"></script>
+</body> 
+</html>

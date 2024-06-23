@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Page</title>
+    <link rel="stylesheet" href="../CSS/project-style.css">
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet'>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="../../admin/branding/Logo1.png" alt="Team Logo" class="team-logo">
+        </div>
+        <div class="project-name">
+            Project Name
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="home.html">Home</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </header>
+
+   
+    <div class="timeline-Wrapper">
+        <div class="timeline-container">  
+            <h1 id="TIHeader">Timeline</h1>
+                <ul>
+                    <li class="completed">
+                        <div class="step-inner"><span>&nbsp&nbsp&nbsp&nbspStart&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span></div>
+                    </li>
+                    <li class="completed">
+                        <div class="step-inner"><span>&nbsp&nbsp&nbsp&nbsp Milestone 1&nbsp&nbsp&nbsp </span></div>
+                    </li>
+                    <li class="uncompleted">
+                        <div class="step-inner"> <span>Milestone 2</span></div>
+                    </li>
+                    <li class="uncompleted">
+                        <div class="step-inner"><span>Milestone 3</span></div>
+                    </li>
+                    <li class="uncompleted">
+                        <div class="step-inner"><span>End</span></div>
+                    </li>
+                </ul>
+                <div id="line"></div>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body> 
+</html>

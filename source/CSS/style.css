@@ -1,0 +1,364 @@
+*{
+    margin:0px;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body{
+    background-color: #0A192F;
+    background: linear-gradient(to right, #0A192F 88%, #00FFB0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.box-container{
+    background-color: white;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 800px;
+    max-width: 100%;
+    min-height: 500px;
+    left: 0px;
+}
+
+.box-container span{
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    margin-top: 60px;
+}
+.box-container p{
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 20px;
+    margin: 20px 0px;
+}
+
+.box-container button{
+    background-color: #0A192F;
+    border-radius: 7px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 45px 10px 45px;
+    cursor: pointer;
+    margin-top: 10px;
+    border: 1px solid transparent;
+}
+
+.box-container button:hover{
+    filter: brightness(75%);
+}
+
+.box-container button.hidden{
+    color: black;
+    background-color: transparent;
+    border-color: black;
+}
+
+.box-container button.hidden:hover{
+    opacity: 0.52;
+}
+
+.box-container form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 40px;
+    height: 100%;
+}
+.box-container input{
+    background-color: lightgray;
+    font-size: 13px;
+    border-radius: 8px;
+    padding: 10px 10px;
+    width: 100%;
+    border: 1px solid transparent;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    outline: 0; 
+}
+
+.form-box{
+    position: absolute;
+    top: 0px;
+    height: 100%;
+}
+
+.form-box.sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.form-box.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.box-container.active .sign-in{
+    transform: translateX(100%);
+}
+
+.box-container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+/*right side*/
+.transition-container{
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 100px;
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+}
+
+.transition{
+    background-color: #CCFF00;
+    height: 100%;
+    color: black;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+.box-container.active .transition-container{
+    transform: translateX(-100%);
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.box-container.active .transition{
+    transform: translateX(50%);
+}
+
+.transition-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.transition-left{
+    transform: translateX(-100%);
+}
+
+.box-container.active .transition-left{
+    transform: translateX(0);
+}
+
+.transition-right{
+    right: 0px;
+}
+
+.box-container.active .transition-right{
+    transform: translateX(100%);
+}
+
+.pincode-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.pincode-box input {
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    font-size: 18px;
+    margin: 2px;
+    background-color: lightgray;
+}
+
+.pincode-box input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.enterPin {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1px; 
+}
+
+/* Iphones*/
+@media (max-width: 768px) {
+    .box-container{
+        flex-direction: column;
+    }
+   
+    .form-box.sign-in {
+        right: 50%;
+        width: 50%;
+        position: absolute;
+        opacity: 1;
+        z-index: 1;
+    }
+    .form-box.sign-in h1 {
+        font-size: 22px;
+    }
+    .enterPin {
+        margin-bottom: 10px;
+        text-align: start;
+    }
+    .pincode-box input {
+        width: 28px;
+        height: 28px;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 11px;
+        margin: 1.5px;
+        background-color: lightgray;
+    }
+    .transition-container{
+        position: absolute;
+        overflow: hidden;
+        width: 50%;
+        height: 100%;
+        border-top-left-radius: 150px;
+        border-bottom-left-radius: 100px;
+        z-index: 1000;
+        transition: all 0.5s ease-in-out;
+        font-size: 8px;
+    }
+    .transition-container h1{
+        font-size: 22px;
+    }
+    .box-container button{
+        background-color: #0A192F;
+        border-radius: 7px;
+        color: white;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 5px 15px 5px 15px;
+        cursor: pointer;
+        margin-top: 10px;
+        border: 1px solid transparent;
+    }
+    .form-box.sign-up h1{
+        font-size: 22px;
+    }
+    .form-box.sign-up input{
+        width: auto;
+        font-size: 12px;
+    }
+
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0px);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.success-message {
+    color: green;
+    font-size: 16px;
+    margin-top: 20px;
+    animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.message-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+    /* Initially hidden */
+    background-color: #0A192F;
+    /* Default background, changed dynamically */
+}
+
+.message-box.success {
+    background-color: green;
+    display: block;
+}
+
+.message-box.error {
+    background-color: red;
+    display: block;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.pincode-box.shake {
+    animation: shake 0.5s linear;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevJournal - Team 29</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="Homestyle.css">
+    <link
+        href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap'
+        rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="/Logo1-nobg.png" alt="Logo" class="logo">
+        </div>
+        <div class="header-center">
+            <h1 class="main-heading">DevSurf</h1>
+            <h2 class="sub-heading">by Software Surfers</h2>
+        </div>
+        <div class="header-right">
+            <p class="greeting">Hi, <span id="username">UserID</span></p>
+            <button class="logout-button">LOG OUT</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="inward-curves"></div>
+        <div class="left-side">
+            <div class="section-heading">
+                <h2 class="left-heading">Your Projects</h2>
+            </div>
+            <div class="project-card-container">
+                <div class="project-card-wrapper">
+                    <div class="project-cards">
+                        <add-project-card></add-project-card>
+                        <!-- Add more project cards as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="section-heading">
+                <h2 class="right-heading">Your Skills</h2>
+            </div>
+            <stats-graph width="100%" height="450px"></stats-graph>
+        </div>
+    </div>
+
+    <!-- Importing JS Files for the custom components -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="projectCard.js"></script>
+    <script src="radarChart.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
