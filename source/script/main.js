@@ -1,6 +1,4 @@
-// main.js
-
-// Event listeners for sign up and sign in buttons
+// Event listeners for sign-up and sign-in buttons
 document.addEventListener('DOMContentLoaded', function () {
     const boxContainerElement = document.getElementById('box-container');
     const signUpButtonElement = document.getElementById('register');
@@ -21,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         signInButtonElement.addEventListener('click', handleSignInButtonClick);
     }
 
-    // Registration and login logic
+    // Registration and login logic using localStorage
     const signUpForm = document.querySelector('#signup-form');
     const signInForm = document.querySelector('#signin-form');
     const messageBox = document.createElement('div');
@@ -35,25 +33,27 @@ document.addEventListener('DOMContentLoaded', function () {
             const name = this.querySelector('input[name="name"]').value;
             const pin = this.querySelector('input[name="pin"]').value;
 
-            fetch('/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, pin })
-            }).then(response => response.json())
-                .then(data => {
-                    showMessage(data.message, 'success');
-                    if (data.message.includes('Registered')) {
-                        const firstName = name.split(' ')[0]; // Get the first name
-                        localStorage.setItem('username', firstName);
-                        window.location.href = `home.html?username=${firstName}`;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    showMessage('Registration failed. Please try again.', 'error');
-                });
+            if (!name || !pin) {
+                showMessage('Please enter a valid name and PIN.', 'error');
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check if user already exists
+            const existingUser = users.find(user => user.name === name);
+            if (existingUser) {
+                showMessage('User already exists. Please log in.', 'error');
+                return;
+            }
+
+            // Store user in localStorage
+            users.push({ name, pin });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            showMessage('Registered successfully!', 'success');
+            localStorage.setItem('username', name);
+            window.location.href = `home.html?username=${name}`;
         });
     }
 
@@ -61,11 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (signInForm) {
         signInForm.addEventListener('submit', function (event) {
             event.preventDefault();
-            submit(); // Call the submit function for login
+            submit();
         });
     }
 
-    // Handle pin input
+    // Handle PIN input
     const pinInputs = document.querySelectorAll(".pincode-box input");
     pinInputs.forEach((pinInput, index) => {
         pinInput.dataset.index = index;
@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function handlePin(event) {
         const currentInput = event.target;
         let value = currentInput.value;
-        currentInput.value = "";
         currentInput.value = value ? value[0] : "";
         let fieldIndex = parseInt(currentInput.dataset.index);
         if (value.length > 0 && fieldIndex < pinInputs.length - 1) {
@@ -101,33 +100,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to submit the login form
     function submit() {
-        const pin = Array.from(document.querySelectorAll('.pin-input')).map(input => input.value).join('');
+        const enteredPin = Array.from(document.querySelectorAll('.pin-input')).map(input => input.value).join('');
+        const usernameInput = document.querySelector('input[name="name"]').value;
 
-        fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ pin })
-        }).then(response => response.json())
-            .then(data => {
-                if (data.redirect) {
-                    localStorage.setItem('username', data.username);
-                    window.location.href = data.redirect;
-                } else {
-                    showMessage(data.message, 'error');
-                    shakePinCodeBox();
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-                showMessage('Login failed. Please try again.', 'error');
-                shakePinCodeBox();
-            });
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        const validUser = users.find(user => user.name === usernameInput && user.pin === enteredPin);
+
+        if (validUser) {
+            localStorage.setItem('username', validUser.name);
+            window.location.href = `home.html?username=${validUser.name}`;
+        } else {
+            showMessage('Invalid credentials. Please try again.', 'error');
+            shakePinCodeBox();
+        }
     }
 
     // Function to display messages
     function showMessage(msg, type) {
-        const messageBox = document.querySelector('.message-box');
         messageBox.textContent = msg;
         messageBox.style.display = 'block';
         messageBox.style.backgroundColor = type === 'success' ? 'green' : 'red';
@@ -145,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => pinBox.classList.remove('shake'), 1000);
     }
 
-    // Retrieve username from local storage and display it
+    // Retrieve username from localStorage and display it
     const usernameElement = document.getElementById('username');
     if (usernameElement) {
         const username = localStorage.getItem('username');
