@@ -8,14 +8,12 @@
     "lint": "eslint .",
     "prettify": "prettier --write .",
     "doc": "jsdoc -c jsdoc.json",
-    "netlify": "netlify dev",
-    "build": "echo 'No build step required'",
+    "netlify": "netlify dev"
   },
   "dependencies": {
     "express": "^4.19.2",
-    "node-modules": "^1.0.1",
-    "serverless-http": "^2.7.0",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "serverless-http": "^2.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
