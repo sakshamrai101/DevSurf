@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "prettify": "prettier --write .",
     "doc": "jsdoc -c jsdoc.json",
-    "netlify": "netlify dev"
+    "netlify": "netlify dev",
+    "build": "echo 'No build step required'",
   },
   "dependencies": {
     "express": "^4.19.2",
