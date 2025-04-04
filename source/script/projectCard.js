@@ -38,8 +38,8 @@ class ProjectCard extends HTMLElement {
                 <button id='cancel' style="display:none;">Cancel</button>
             </div>
             <button id='project-journal' class="journal-button">Project Journal</button>
-            <button id='edit'><img src='/edit.ico' alt='Edit'></button>
-            <button id='trash'><img src='/trash.png' alt='Trash'></button>
+            <button id='edit'><img src='/source/img/edit.ico' alt='Edit'></button>
+            <button id='trash'><img src='/source/img/trash.png' alt='Trash'></button>
         `;
         this.shadowRoot.append(cardContainer);
 
