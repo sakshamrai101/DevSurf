@@ -127,7 +127,7 @@ function addMilestone(milestoneName) {
     newTimelineElement.innerHTML =
         `
     <span>${milestoneName}</span>
-    <img src="/2.png" alt="Incomplete Flag" class="milestone-image"/> 
+    <img src="source/img/2.png" alt="Incomplete Flag" class="milestone-image"/> 
     `;
     let length = milestoneName.length;
     //using length of milestone name claculate the width of the span element
@@ -500,7 +500,7 @@ function getMilestoneHTML(milestoneNumber, milestoneName) {
             <div class="milestone-content">
                 <div contenteditable="true" class="milestone-name">${milestoneName}</div>
                 <div class='date'></div>
-                <button class="milestone-trash" onclick="deleteMilestone(this)" tabindex="0"><img class="milestoneX" src="/trash.png"></button>
+                <button class="milestone-trash" onclick="deleteMilestone(this)" tabindex="0"><img class="milestoneX" src="/source/img/trash.png"></button>
             </div>
             <button class="dropdown-arrow" id="dropdown-arrow-${milestoneNumber}" onclick="toggleTasks(${milestoneNumber});" tabindex="0">▼</button>
         </div>
@@ -698,11 +698,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     //listens for when the home button on projects page is pushed
     document.querySelector('.home-button').addEventListener('click', function () {
-        window.location.href = 'home.html'; // go to home page
+        window.location.href = '/home.html'; // go to home page
     });
     //listens for when the logout button is pushed
     document.querySelector('.logout-button').addEventListener('click', function () {
-        window.location.href = 'index.html'; // go to login page
+        window.location.href = '/index.html'; // go to login page
         //localeStorage.clear();
     });
     /**
