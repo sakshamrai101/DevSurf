@@ -72,11 +72,11 @@ function isAuthenticated(req, res, next) {
 
 // Use the authentication middleware for protected routes
 app.get('/home.html', isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, 'source/Html/home.html'));
+    res.sendFile(path.join(__dirname, '/home.html'));
 });
 
 app.get('/project.html', isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, 'source/Html/project.html'));
+    res.sendFile(path.join(__dirname, '/project.html'));
 });
 
 app.listen(PORT, () => {
