@@ -85,7 +85,7 @@ function addTask(button, milestoneId, taskText, isChecked, dateCompleted) {
             <input type="checkbox" id="task-${milestoneId}-${taskCount}" onclick="updateProgress(${milestoneId}); updateDate(this)" ${isChecked ? 'checked' : ''} onkeydown="toggleCheckboxOnEnter(event, this)">
             <label contenteditable="true">${taskText}</label>
             <div class = date>${dateCompleted}</div> 
-            <button class="milestone-trash" onclick="deleteTask(this, ${milestoneId})" tabindex="0"><img class="milestoneX" src="/trash.png"></button>
+            <button class="milestone-trash" onclick="deleteTask(this, ${milestoneId})" tabindex="0"><img class="milestoneX" src="/source/img/trash.png"></button>
         </div>
 
     `;
@@ -331,7 +331,7 @@ function updateProgress(milestoneId) {
         timelineElement.classList.remove('uncompleted');
         timelineElement.classList.add('completed');
         milestone.querySelector('.milestone-name').classList.add('completed');
-        image.src = '/1.png';
+        image.src = '/source/img/1.png';
         image.alt = 'complete flag';
 
     }
@@ -340,7 +340,7 @@ function updateProgress(milestoneId) {
         timelineElement.classList.remove('completed');
         timelineElement.classList.add('uncompleted');
         milestone.querySelector('.milestone-name').classList.remove('completed');
-        image.src = '/2.png';
+        image.src = '/source/img/2.png';
         image.alt = 'incomplete flag';
     }
 
